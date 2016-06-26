@@ -1,5 +1,8 @@
 package com.equalinformation.scalajs.scala
 
+import org.scalajs.dom
+import dom.document
+
 import scala.scalajs.js.JSApp
 
 /**
@@ -7,7 +10,15 @@ import scala.scalajs.js.JSApp
   */
 object SampleApp extends JSApp {
   def main(): Unit = {
-    println("test program")
+    appendPar(document.body, "Test program")
+  }
+
+  def appendPar(targetNode: dom.Node, text: String): Unit = {
+    val parNode = document.createElement("p")
+    val textNode = document.createTextNode(text)
+    parNode.appendChild(textNode)
+    targetNode.appendChild(parNode)
+
   }
 
 }
