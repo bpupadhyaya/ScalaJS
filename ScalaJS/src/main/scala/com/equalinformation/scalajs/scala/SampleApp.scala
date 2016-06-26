@@ -4,6 +4,7 @@ import org.scalajs.dom
 import dom.document
 
 import scala.scalajs.js.JSApp
+import scala.scalajs.js.annotation.JSExport
 
 /**
   * Created by bpupadhyaya on 6/18/16.
@@ -19,6 +20,11 @@ object SampleApp extends JSApp {
     parNode.appendChild(textNode)
     targetNode.appendChild(parNode)
 
+  }
+
+  @JSExport
+  def addButtonClickMessage(): Unit = {
+    appendPar(document.body, "Test program button click")
   }
 
 }
