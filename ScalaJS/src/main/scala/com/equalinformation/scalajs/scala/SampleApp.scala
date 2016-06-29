@@ -1,8 +1,6 @@
 package com.equalinformation.scalajs.scala
 
-
 import org.scalajs.jquery.jQuery
-
 import scala.scalajs.js.JSApp
 
 /**
@@ -10,18 +8,20 @@ import scala.scalajs.js.JSApp
   */
 object SampleApp extends JSApp {
 
-    def main(): Unit = {
-      jQuery(setupUI _)
-    }
+  def main(): Unit = {
+    jQuery(setupUI _)
+  }
 
   def setupUI(): Unit = {
-    jQuery("#click-button").click(addButtonClickMessage _)
+    jQuery("""<button type="button">Click here</button>""")
+      .click(addButtonClickMessage _)
+      .appendTo(jQuery("body"))
     jQuery("body").append("<p>Test program jQuery</p>")
   }
 
-    def addButtonClickMessage(): Unit = {
-     jQuery("body").append("<p>Test program button click jQuery </p>")
-    }
+  def addButtonClickMessage(): Unit = {
+   jQuery("body").append("<p>Test program button click jQuery</p>")
+  }
 
 
   // DOM based implementation - uncomment if you want to test DOM based solution, but jQuery uses DOM internally so...
